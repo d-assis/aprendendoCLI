@@ -1,0 +1,128 @@
+macetes do CMD
+
+ao usar a linha de comando ou CLI (command line interface), devemos nos atentar a alguns detalhes:
+
+- comandos são compostos e separados por espaço
+- ao nomear arquivos e pastas é uma boa prática usar _ ao invés de espaços
+- o caracter * geralmente significa "todos", por exemplo:
+	copy *.png c:/Users/user/Desktop
+	a linha acima indica que todos os arquivos com a extensão .png devem ser copiados para a pasta desktop
+- variáveis por padrão só valem na seção de terminal onde foram criadas
+- variáveis são referenciadas como %nomeDaVariavel%
+
+----
+guia de comandos nativos:
+
+dir (directory)
+	lista os arquivos e diretórios da pasta atual, pode ser usado com:
+	- ` \a` para exibir arquivos comuns e ocultos
+
+cd (change directory)
+	navega pelos diretórios do sistema, pode ser usado como:
+	- `cd .` para indicar a pasta atual,
+	- `cd ..` para indicar a pasta anterior
+	- `cd %userprofile%` para navegar direto para a pasta principal do usário
+	- `cd \` para navegar direto para a pasta raiz do sistema
+	- `cd C:\caminho\do\diretorio\de\destino` para navegar direto para um diretório específico
+
+rmdir (remove directory)
+	remove uma pasta do sistema, pode ser usado como:
+	- `rmdir nome_da_pasta` para excluir um diretório presente na localização atual
+	- `rmdir C:\caminho\da\pasta` para excluir um diretório específico fora da localização atual
+	- `rmdir .\caminho\relativo` para excluir um diretório através do caminho a partir da localização atual
+
+del (delete)
+	exclui arquivos, pode ser usado como:
+	- `del nomeDoArquivo` para excluir um arquivo da pasta atual
+	- `del C:\caminho\do\arquivo` para excluir diretamente um arquivo específico fora da localização atual 
+	- `del .\caminho\relativo` para excluir um arquivo através do caminho a partir da localização atual
+
+systeminfo
+	exibe informações sobre o sistema 
+
+tree
+	exibe a estrutura de pastas e arquivos a partir da pasta atual
+
+date
+	exibe a data e permite alterá-la
+
+shutdown
+	desliga ou reinicia o computador imediatamente ou num horário agendado
+
+find
+	procura uma cadeia de caracteres específica num arquivo ou grupo de arquivos. Pode ser usado como:
+	- `find "meu texto" meuArquivo.txt` para um arquivo na pasta atual
+	- `find "meu texto" .\caminho\relativo\meuArquivo.txt` para um arquivo fora da pasta atual usando caminho relativo
+	- `find "meu texto" C:\caminho\absoluto\meuArquivo.txt` para um arquivo fora da pasta atual usando caminho absoluto
+
+exit
+	encerra o terminal
+
+copy
+	copia arquivos para a pasta atual ou para pasta de destino. Pode ser usado como:
+	- `copy meuTexto.txt minhaCopia.txt` para copiar um arquivo da pasta atual para a mesma pasta
+	- `copy meuTexto.txt .\caminho\relativo` para copiar um arquivo para outra pasta usando caminho relativo
+	- `copy meuTexto.txt C:\caminho\absoluto` para copiar um arquivo para outra pasta usando caminho absoluto
+
+
+move
+	movimenta arquivos através de diretórios pode ser usado como:
+	- `move meuTexto.txt .\caminho\relativo` para mover um arquivo para outra pasta usando caminho relativo
+	- `move meuTexto.txt C:\caminho\absoluto` para mover um arquivo para outra pasta usando caminho absoluto
+
+cls(clear screen)
+	limpa a tela do terminal
+
+pause
+	pausa a execução do programa e exige interação do usário para continuar
+
+tar
+	compacta arquivos. Permite o uso das flags:
+	- `-c` (versão longa --create) para indicar a criação de um novo arquivo;
+	- `-f` (versão longa --file) para especificar um nome para um possível arquivo de saída ou indicar um arquivo compactado a ser processado;
+	- `-t` (versão longa --list) para listar os arquivos contidos num outro arquivo compactado;
+	- `-x` (versão longa --extract) para extrair um ou mais arquivos e pastas contidos num arquivo compactado;
+	
+	também permite o uso de combinações de flags:
+	- `-cf` (--create--file) cria num novo arquivo compactado a partir de um ou mais arquivos de entrada;
+	- `-tf` (--list--file) exibe uma lista dos arquivos contidos num arquivo compactado;
+	- `-xf` (--extract--file) extrai arquivos contidos num arquivo compactado de entrada;
+
+echo
+	printa uma mensagem no terminal
+
+set
+	armazena uma informação numa variável. O valor armazenado vale apenas para a sessão na qual a variavel foi inicializada. Exemplo:
+	- `set mensagem=Olá mundo!`
+
+	também pode ser usado para solicitar que o usuário insira uma informação:
+	- `set /p variavel=mensagem para o usuario` 
+
+rem
+	insere comentários num script, linhas comentadas não serão lidar pelo interpretador.
+
+setx
+	armazena uma informação numa variável de ambiente de forma persistente. Valores armazenados usando o setx valem em qualquer instância do terminal
+
+----
+
+guia de operadores
+	Operadores são elementos que permitem relacionar diferentes comandos de maneiras variadas, podendo manipular saídas, realizar tratativas de erro e conectar procedimentos.
+
+operador >
+	redireciona a saída padrão (stdout ou standard output) para um arquivo ao invés de exibir a mesma no console, exemplo:
+	- `type meuArquivo.xml > saida.txt`
+
+operador 2>
+	redireciona a saída de erro para um arquivo ao invés de exibir a mesma no console, exemplo:
+	- `tar -cf batnotas.zip *.xml 2> erros.txt`
+
+operador |
+	oferece a saída de um comando como entrada para o comando seguinte, exemplo:
+	- inserir exemplo
+
+operador &&
+	permite a execução de múltiplos comandos em sequência, mas apenas se o comando anterior for concluído com sucesso.
+
+operador ||
+	permite a execução de múltiplos comandos em sequência, mas apenas se o comando anterior falhar.

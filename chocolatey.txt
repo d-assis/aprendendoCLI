@@ -1,0 +1,4 @@
+chocolatey
+É um gerenciador de pacotes do windows que permite buscar e instalar diversas ferramentas usando o CLI.
+
+comandos

@@ -1,0 +1,16 @@
+winget
+É um gerenciador de pacotes do windows que permite buscar e instalar diversas ferramentas usando o CLI.
+
+comandos
+
+winget -v
+	mostra a versão do winget
+
+winget --info
+	exibe uma série de informações do sistema no qual estamos trabalhando
+
+winget import
+	recebe um arquivo json que contém a configuraçao de um ambiente com uma série de pacotes relacionados para instalação
+
+winget export
+	exporta um arquivo json que contém a configuração do nosso ambiente atual
